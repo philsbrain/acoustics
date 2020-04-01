@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SoundAssured Reverberation Time Calculator</title>
+  <link rel="stylesheet" href="./styles.css" type="text/css" />
+  <script src="./main.js"></script>
+</head>
+
+<body>
+
+  <!-- Header -->
+
+  <header class="flex-container">
+    <img src="./images/SoundAssured Square Logo.png" />
+    <nav>
+      <span><a href="https://www.soundassured.com/collections">Shop Now</a></span>
+    </nav>
+  </header>
+
+    <!-- STEP 1 roomDImensionsInput Section -->
+
+    <div id="roomDImensionsInput">
+      <h2>Reverberation Time Calculator (T60)</h2>
+      <h4>Find the T60 of your room and get recommendations for acoustic treatment!</h4>
+      <p>Reverberation Time is the time it takes for a sound to decay by 60 dB and is sometimes abbreviated T60 or RT60. A T60 of less than 0.5 seconds is ideal for recording studios, home theaters, and anywhere good speech clarity is desired.</p>
+
+      <div id="userInputs">
+
+      <form id="customerDimensionInputForm">
+        <h2>Step 1</h2>
+        <p>Enter the dimensions of your room in feet. Then, click "Complete Step 1".</p>
+        <p>
+          <label>Length</label>
+          <input type = "number"
+                 id = "roomLengthFeet" />
+        </p>
+        <p>
+          <label>Width</label>
+          <input type = "number"
+                 id = "roomWidthFeet" />
+        </p>
+        <p>
+          <label>Height</label>
+          <input type = "number"
+                 id = "roomHeightFeet" />
+        </p>
+        <button type="button" id='btn1' onClick="handleCustomerDims()" >Complete Step 1</button>
+      </form>
+
+      </div>  
+
+      <br> 
+    
+      <!--STEP 2 Choosing material type info-->  
+
+      <h2>Step 2</h2>
+      <p>Choose the material from the drop down lists that best describes each surface in your room. Then, click "Complete Step 2".</p>
+
+      <!--Choosing floor material type-->  
+
+    <div id="roomDImensionsMaterialsFloor">
+ 
+      <div id="floorMains">
+        <h3 id="floorMainsMessage" ></h3>
+        <form>
+        <p>
+            <label>Floor Material</label>
+
+            <select id = "floorMaterial">
+                <option value="Drywall">Drywall</option>
+                <option value="Concrete">Concrete</option>
+                <option value="Plywood">Plywood</option>
+                <option value="Carpet - thick no pad">Carpet - thick no pad</option>
+                <option value="Carpet - thick with pad">Carpet - thick with pad</option>
+                <option value="Carpet - thin">Carpet - thin</option>
+                <option value="Hardwood flooring">Hardwood flooring</option>
+                <option value="Wood Paneling">Wood Paneling</option>
+                <option value="Brick ">Brick </option>
+                <option value="Linoleum">Linoleum</option>
+                <option value="Asphalt">Asphalt</option>
+                <option value="Glass">Glass</option>
+                <option value="Concrete or terrazzo flooring">Concrete or terrazzo flooring</option>
+                <option value="Tile on concrete">Tile on concrete</option>
+                <option value="Light velour fabric">Light velour fabric</option>
+                <option value="Medium velour fabric">Medium velour fabric</option>
+                <option value="Heavy velour fabric">Heavy velour fabric</option>
+                <option value="Marble">Marble</option>
+                <option value="Water surface - pool">Water surface - pool</option>
+                <option value="1 Inch Wedge Acoustic Foam">1 Inch Wedge Acoustic Foam</option>
+                <option value="2 Inch Wedge Acoustic Foam">2 Inch Wedge Acoustic Foam</option>
+                <option value="3 Inch Wedge Acoustic Foam">3 Inch Wedge Acoustic Foam</option>
+                <option value="4 Inch Wedge Acoustic Foam">4 Inch Wedge Acoustic Foam</option>
+                <option value="Bass Traps">Bass Traps</option>
+            </select>
+          </p>
+        </form>
+        </div> 
+       </div>   
+
+
+
+      <!--Choosing ceiling material type-->  
+
+      <div id="roomDImensionsMaterialsCeiling">
+ 
+        <div id="ceilingMains">
+          <h3 id="ceilingMainsMessage" ></h3>
+          <form>
+          <p>
+              <label>Ceiling Material</label>
+  
+              <select id = "ceilingMaterial">
+                  <option value="Drywall">Drywall</option>
+                  <option value="Concrete">Concrete</option>
+                  <option value="Plywood">Plywood</option>
+                  <option value="Carpet - thick no pad">Carpet - thick no pad</option>
+                  <option value="Carpet - thick with pad">Carpet - thick with pad</option>
+                  <option value="Carpet - thin">Carpet - thin</option>
+                  <option value="Hardwood flooring">Hardwood flooring</option>
+                  <option value="Wood Paneling">Wood Paneling</option>
+                  <option value="Brick ">Brick </option>
+                  <option value="Linoleum">Linoleum</option>
+                  <option value="Asphalt">Asphalt</option>
+                  <option value="Glass">Glass</option>
+                  <option value="Concrete or terrazzo flooring">Concrete or terrazzo flooring</option>
+                  <option value="Tile on concrete">Tile on concrete</option>
+                  <option value="Light velour fabric">Light velour fabric</option>
+                  <option value="Medium velour fabric">Medium velour fabric</option>
+                  <option value="Heavy velour fabric">Heavy velour fabric</option>
+                  <option value="Marble">Marble</option>
+                  <option value="Water surface - pool">Water surface - pool</option>
+                  <option value="1 Inch Wedge Acoustic Foam">1 Inch Wedge Acoustic Foam</option>
+                  <option value="2 Inch Wedge Acoustic Foam">2 Inch Wedge Acoustic Foam</option>
+                  <option value="3 Inch Wedge Acoustic Foam">3 Inch Wedge Acoustic Foam</option>
+                  <option value="4 Inch Wedge Acoustic Foam">4 Inch Wedge Acoustic Foam</option>
+                  <option value="Bass Traps">Bass Traps</option>
+              </select>
+            </p>
+          </form>
+          </div> 
+         </div>          
+
+
+
+      <!--Choosing wallOne material type-->  
+
+      <div id="roomDImensionsMaterialsWallOne">
+ 
+        <div id="wallOneMains">
+          <h3 id="wallOneMainsMessage" ></h3>
+          <form>
+          <p>
+              <label>Wall One Material</label>
+  
+              <select id = "wallOneMaterial">
+                  <option value="Drywall">Drywall</option>
+                  <option value="Concrete">Concrete</option>
+                  <option value="Plywood">Plywood</option>
+                  <option value="Carpet - thick no pad">Carpet - thick no pad</option>
+                  <option value="Carpet - thick with pad">Carpet - thick with pad</option>
+                  <option value="Carpet - thin">Carpet - thin</option>
+                  <option value="Hardwood flooring">Hardwood flooring</option>
+                  <option value="Wood Paneling">Wood Paneling</option>
+                  <option value="Brick ">Brick </option>
+                  <option value="Linoleum">Linoleum</option>
+                  <option value="Asphalt">Asphalt</option>
+                  <option value="Glass">Glass</option>
+                  <option value="Concrete or terrazzo flooring">Concrete or terrazzo flooring</option>
+                  <option value="Tile on concrete">Tile on concrete</option>
+                  <option value="Light velour fabric">Light velour fabric</option>
+                  <option value="Medium velour fabric">Medium velour fabric</option>
+                  <option value="Heavy velour fabric">Heavy velour fabric</option>
+                  <option value="Marble">Marble</option>
+                  <option value="Water surface - pool">Water surface - pool</option>
+                  <option value="1 Inch Wedge Acoustic Foam">1 Inch Wedge Acoustic Foam</option>
+                  <option value="2 Inch Wedge Acoustic Foam">2 Inch Wedge Acoustic Foam</option>
+                  <option value="3 Inch Wedge Acoustic Foam">3 Inch Wedge Acoustic Foam</option>
+                  <option value="4 Inch Wedge Acoustic Foam">4 Inch Wedge Acoustic Foam</option>
+                  <option value="Bass Traps">Bass Traps</option>
+              </select>
+            </p>
+          </form>
+          </div> 
+         </div>      
+         
+         
+
+
+               <!--Choosing wallTwo material type-->  
+
+      <div id="roomDImensionsMaterialsWallTwo">
+ 
+        <div id="wallTwoMains">
+          <h3 id="wallTwoMainsMessage" ></h3>
+          <form>
+          <p>
+              <label>Wall Two Material</label>
+  
+              <select id = "wallTwoMaterial">
+                  <option value="Drywall">Drywall</option>
+                  <option value="Concrete">Concrete</option>
+                  <option value="Plywood">Plywood</option>
+                  <option value="Carpet - thick no pad">Carpet - thick no pad</option>
+                  <option value="Carpet - thick with pad">Carpet - thick with pad</option>
+                  <option value="Carpet - thin">Carpet - thin</option>
+                  <option value="Hardwood flooring">Hardwood flooring</option>
+                  <option value="Wood Paneling">Wood Paneling</option>
+                  <option value="Brick ">Brick </option>
+                  <option value="Linoleum">Linoleum</option>
+                  <option value="Asphalt">Asphalt</option>
+                  <option value="Glass">Glass</option>
+                  <option value="Concrete or terrazzo flooring">Concrete or terrazzo flooring</option>
+                  <option value="Tile on concrete">Tile on concrete</option>
+                  <option value="Light velour fabric">Light velour fabric</option>
+                  <option value="Medium velour fabric">Medium velour fabric</option>
+                  <option value="Heavy velour fabric">Heavy velour fabric</option>
+                  <option value="Marble">Marble</option>
+                  <option value="Water surface - pool">Water surface - pool</option>
+                  <option value="1 Inch Wedge Acoustic Foam">1 Inch Wedge Acoustic Foam</option>
+                  <option value="2 Inch Wedge Acoustic Foam">2 Inch Wedge Acoustic Foam</option>
+                  <option value="3 Inch Wedge Acoustic Foam">3 Inch Wedge Acoustic Foam</option>
+                  <option value="4 Inch Wedge Acoustic Foam">4 Inch Wedge Acoustic Foam</option>
+                  <option value="Bass Traps">Bass Traps</option>
+              </select>
+            </p>
+          </form>
+          </div> 
+         </div>  
+
+
+               <!--Choosing wallThree material type-->  
+
+      <div id="roomDImensionsMaterialsWallThree">
+ 
+        <div id="wallThreeMains">
+          <h3 id="wallThreeMainsMessage" ></h3>
+          <form>
+          <p>
+              <label>Wall Three Material</label>
+  
+              <select id = "wallThreeMaterial">
+                  <option value="Drywall">Drywall</option>
+                  <option value="Concrete">Concrete</option>
+                  <option value="Plywood">Plywood</option>
+                  <option value="Carpet - thick no pad">Carpet - thick no pad</option>
+                  <option value="Carpet - thick with pad">Carpet - thick with pad</option>
+                  <option value="Carpet - thin">Carpet - thin</option>
+                  <option value="Hardwood flooring">Hardwood flooring</option>
+                  <option value="Wood Paneling">Wood Paneling</option>
+                  <option value="Brick ">Brick </option>
+                  <option value="Linoleum">Linoleum</option>
+                  <option value="Asphalt">Asphalt</option>
+                  <option value="Glass">Glass</option>
+                  <option value="Concrete or terrazzo flooring">Concrete or terrazzo flooring</option>
+                  <option value="Tile on concrete">Tile on concrete</option>
+                  <option value="Light velour fabric">Light velour fabric</option>
+                  <option value="Medium velour fabric">Medium velour fabric</option>
+                  <option value="Heavy velour fabric">Heavy velour fabric</option>
+                  <option value="Marble">Marble</option>
+                  <option value="Water surface - pool">Water surface - pool</option>
+                  <option value="1 Inch Wedge Acoustic Foam">1 Inch Wedge Acoustic Foam</option>
+                  <option value="2 Inch Wedge Acoustic Foam">2 Inch Wedge Acoustic Foam</option>
+                  <option value="3 Inch Wedge Acoustic Foam">3 Inch Wedge Acoustic Foam</option>
+                  <option value="4 Inch Wedge Acoustic Foam">4 Inch Wedge Acoustic Foam</option>
+                  <option value="Bass Traps">Bass Traps</option>
+              </select>
+            </p>
+          </form>
+          </div> 
+         </div>  
+
+
+               <!--Choosing wallFour material type-->  
+
+      <div id="roomDImensionsMaterialsWallFour">
+ 
+        <div id="wallFourMains">
+          <h3 id="wallFourMainsMessage" ></h3>
+          <form>
+          <p>
+              <label>Wall Four Material</label>
+  
+              <select id = "wallFourMaterial">
+                  <option value="Drywall">Drywall</option>
+                  <option value="Concrete">Concrete</option>
+                  <option value="Plywood">Plywood</option>
+                  <option value="Carpet - thick no pad">Carpet - thick no pad</option>
+                  <option value="Carpet - thick with pad">Carpet - thick with pad</option>
+                  <option value="Carpet - thin">Carpet - thin</option>
+                  <option value="Hardwood flooring">Hardwood flooring</option>
+                  <option value="Wood Paneling">Wood Paneling</option>
+                  <option value="Brick ">Brick </option>
+                  <option value="Linoleum">Linoleum</option>
+                  <option value="Asphalt">Asphalt</option>
+                  <option value="Glass">Glass</option>
+                  <option value="Concrete or terrazzo flooring">Concrete or terrazzo flooring</option>
+                  <option value="Tile on concrete">Tile on concrete</option>
+                  <option value="Light velour fabric">Light velour fabric</option>
+                  <option value="Medium velour fabric">Medium velour fabric</option>
+                  <option value="Heavy velour fabric">Heavy velour fabric</option>
+                  <option value="Marble">Marble</option>
+                  <option value="Water surface - pool">Water surface - pool</option>
+                  <option value="1 Inch Wedge Acoustic Foam">1 Inch Wedge Acoustic Foam</option>
+                  <option value="2 Inch Wedge Acoustic Foam">2 Inch Wedge Acoustic Foam</option>
+                  <option value="3 Inch Wedge Acoustic Foam">3 Inch Wedge Acoustic Foam</option>
+                  <option value="4 Inch Wedge Acoustic Foam">4 Inch Wedge Acoustic Foam</option>
+                  <option value="Bass Traps">Bass Traps</option>
+              </select>
+            </p>
+          </form>
+          </div> 
+         </div>  
+
+         <form>
+          <button type="button" id='btn2' onClick="handleRoomDims()" >Complete Step 2</button>
+         </form>
+
+         <br>
+
+
+<!--STEP 3 adding windows and door info
+NEED TO WORK ON THIS AFTER I GET DONE WITHOUT ADDING THESE-->   
+
+
+
+<!--RESULTS SECTION -->   
+
+<h2>Your Room Statistics</h2>
+<p id="roomVolumeMessage"></p>
+<p id="totalAbsorptionMessage"></p>
+<p id="reverbTimeMessage"></p>
+
+<br>
+
+<h2>Treatment Recommendations</h2>
+<p id="treatmentRecParOne"></p>
+<p id="treatmentRecParTwo"></p>
+<p id="oneInchWedgeRecMessage"></p>
+<p id="twoInchWedgeRecMessage"></p>
+<p id="threeInchWedgeRecMessage"></p>
+<p id="fourInchWedgeRecMessage"></p>
+
+
+<br>
+
+<h2>Bundles That Will Work For You</h2>
+<a 
+  target="_blank"
+  href="https://www.soundassured.com/collections/special-acoustic-foam-bundles/products/recording-studio-acoustic-treatment"
+  id="recordinStudioBundleMessage" >
+</a>
+<br>
+<a 
+  id="homeTheaterExoBundleMessage"
+  target="_blank"
+  href="https://www.soundassured.com/collections/special-acoustic-foam-bundles/products/home-theater-acoustic-foam-bundles-by-exocontralto" >
+
+</a>
+<br>
+<a 
+  target="_blank"
+  href="https://www.soundassured.com/collections/special-acoustic-foam-bundles/products/that-home-theater-dude-acoustic-foam-bundle"
+  id="homeTheaterDudeBundleMessage" >
+</a>
+
+<br>
+
+
+
+    <!-- Contact Section -->
+    <!-- <div id="contact">
+      <h5>Need help? Email support@soundassured.com</h5>
+    </div> -->
+
+    <!-- Footer Section -->
+    <footer>
+      <h5>Need help? Email support@soundassured.com</h5>
+      <h5>Copyright SoundAssured 2020</h5>
+    </footer>
+  </body>
+</html>
